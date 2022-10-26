@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package lab_6;
+
+message addMsg {
+    int32 a = 1;
+    int32 b = 2;
+}
+
+message rawImageMsg {
+    bytes img = 1;
+}
+
+message dotProductMsg {
+    repeated float list_1 = 1;
+    repeated float list_2 = 2;
+}
+
+message jsonImageMsg {
+    string img = 1;
+}
+
+message addMsgReply {
+    int32 sum = 1;
+}
+
+message dotProductMsgReply {
+    repeated float dotProductSum = 1;;
+}
+
+message rawImageMsgReply {
+    int32 width = 1;
+    int32 height = 2;
+}
+
+message jsonImageMsgReply {
+    int32 width = 1;
+    int32 height = 2;
+}
+
+service Lab_6 {
+    rpc add(addMsg) returns (addMsgReply);
+
+    rpc rawimage(rawImageMsg) returns (rawImageMsgReply);
+
+    rpc dotproduct(dotProductMsg) returns (dotProductMsgReply);
+
+    rpc jsonimage(jsonImageMsg) returns (jsonImageMsgReply);
+}
